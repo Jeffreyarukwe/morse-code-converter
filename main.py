@@ -1,30 +1,29 @@
-from alphabet import alphabet
 from art import morsecode_welcome, morsecode_goodbye
+from decode import decode
+from encode import encode
 
 print(morsecode_welcome)
 print("Type the '!cmd-quit' to abort program")
 
 abort_program = False
+morse_symbols = ['*', '-', '/', ' ']
 
 while not abort_program:
-    plaintext_wordlist = input("Enter your plaintext word here: ")
+    to_encode = False
 
-    if plaintext_wordlist == '!cmd-quit':
+    text = input("Enter your text here: ")
+
+    if text == '!cmd-quit':
         abort_program = True
         print(morsecode_goodbye)
         break
 
-    word_to_join = []
-    for word in plaintext_wordlist:
-        candidate_word = word.upper()
-        if candidate_word not in alphabet.keys():
-            continue
-        word_to_join.append(alphabet[candidate_word])
+    for char in text:
+        if char not in morse_symbols:
+            to_encode = True
+            break
 
-    result = " ".join(word_to_join)
-    print(result)
-
-
-
-
-
+    if to_encode:
+        print(encode(text))
+    else:
+        print(decode(text))
