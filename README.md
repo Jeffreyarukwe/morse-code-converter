@@ -37,7 +37,7 @@ To use the Morse Code Translator, follow these steps:
 3. **Run the Application:**
    - For the CLI version:
      ```bash
-     python morse_code_cli.py
+     python main.py
      ```
    - For the GUI version:
      visit https://morse-translator.onrender.com/
